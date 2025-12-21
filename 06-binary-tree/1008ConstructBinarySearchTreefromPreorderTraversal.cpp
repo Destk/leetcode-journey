@@ -45,22 +45,21 @@ void input(std::vector<int>& v){
 }
 
 TreeNode* bstFromPreorder(std::vector<int>& preorder) {
-    std::function<TreeNode*(std::vector<int>)> build;
-    build = [&] (std::vector<int> v) -> TreeNode* {
-        if(v.empty()) return nullptr;
-        int root = v[0];
-        size_t ind{1};
-        TreeNode* node = new TreeNode(root);
-        while(ind < v.size() && v[ind] < root) {
-            ind++;
+    std::function<TreeNode*(int, int)> build;
+    build = [&] (int start, int end) -> TreeNode* {
+        if (start >= end) return nullptr;
+        TreeNode* node;
+        int root = preorder[start];
+        node = new TreeNode(root);
+        int indr = start+1;
+        while(indr < end && preorder[indr] < root){
+            indr++;
         }
-        std::vector<int> left(v.begin() + 1, v.begin() + ind);
-        std::vector<int> right(v.begin() + ind, v.end());
-        node->left = build(left);
-        node->right = build(right);
+        node->left = build(start+1,indr);
+        node->right = build(indr,end);
         return node;
     };
-    return build(preorder);        
+    return build(0, preorder.size());        
 }
 
 void output(TreeNode* r){
