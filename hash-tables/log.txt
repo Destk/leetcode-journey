@@ -1,0 +1,8 @@
+Started new calculation session
+User entered K: 3
+Calculation finished. Result: 4
+Start problems 2006
+Started new calculation session
+User entered K: 1
+Calculation finished. Result: 4
+Start problems 2006
