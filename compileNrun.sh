@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-filename=$1
+filename="$PWD/$1"
 
 if [ ! -f "$filename" ]; then
     echo "Такого файла не существует, попробуйте ещё раз"
@@ -18,15 +18,15 @@ if [[ "$filename" != *.cpp ]]; then
     exit 1
 fi
 
-com="${filename%%[A-Za-z]*}"
+com=$(basename "$filename" .cpp)
 
 g++ -Wall -Wextra -std=c++17 -O2 "$filename" -o "$com"
 
 if [ $? -eq 0 ]; then
     echo "Компиляция успешна"
-    ./$com
+    "$com"
 else
-    echo "Ошикба компиляции"
+    echo "Ошикбvа компиляции"
     exit 1
 fi
 
