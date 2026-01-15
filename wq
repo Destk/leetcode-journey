@@ -1,0 +1,46 @@
+ README.md                                                                 | Bin [31m9476[m -> [32m9476[m bytes
+ duplicat.sh                                                               |  26 [32m++[m
+ projinfo.sh                                                               |  36 [32m++[m
+ task_manager/CmakeLists.txt                                               |  15 [32m+[m
+ task_manager/build/CMakeCache.txt                                         | 379 [32m++++++++++++++++[m
+ task_manager/build/CMakeFiles/3.28.3/CMakeCCompiler.cmake                 |  74 [32m++++[m
+ task_manager/build/CMakeFiles/3.28.3/CMakeCXXCompiler.cmake               |  85 [32m++++[m
+ task_manager/build/CMakeFiles/3.28.3/CMakeDetermineCompilerABI_C.bin      | Bin [31m0[m -> [32m15968[m bytes
+ task_manager/build/CMakeFiles/3.28.3/CMakeDetermineCompilerABI_CXX.bin    | Bin [31m0[m -> [32m15992[m bytes
+ task_manager/build/CMakeFiles/3.28.3/CMakeSystem.cmake                    |  15 [32m+[m
+ task_manager/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c       | 880 [32m++++++++++++++++++++++++++++++++++++++[m
+ task_manager/build/CMakeFiles/3.28.3/CompilerIdC/a.out                    | Bin [31m0[m -> [32m16088[m bytes
+ task_manager/build/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.cpp | 869 [32m+++++++++++++++++++++++++++++++++++++[m
+ task_manager/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out                  | Bin [31m0[m -> [32m16096[m bytes
+ task_manager/build/CMakeFiles/CMakeConfigureLog.yaml                      | 531 [32m+++++++++++++++++++++++[m
+ task_manager/build/CMakeFiles/CMakeDirectoryInformation.cmake             |  16 [32m+[m
+ task_manager/build/CMakeFiles/Makefile.cmake                              | 130 [32m++++++[m
+ task_manager/build/CMakeFiles/Makefile2                                   | 112 [32m+++++[m
+ task_manager/build/CMakeFiles/TargetDirectories.txt                       |   3 [32m+[m
+ task_manager/build/CMakeFiles/cmake.check_cache                           |   1 [32m+[m
+ task_manager/build/CMakeFiles/progress.marks                              |   1 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/DependInfo.cmake           |  25 [32m++[m
+ task_manager/build/CMakeFiles/task_manager.dir/build.make                 | 142 [32m++++++[m
+ task_manager/build/CMakeFiles/task_manager.dir/cmake_clean.cmake          |  15 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/compiler_depend.make       |   2 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/compiler_depend.ts         |   2 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/depend.make                |   2 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/flags.make                 |  10 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/link.txt                   |   1 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/progress.make              |   5 [32m+[m
+ task_manager/build/CMakeFiles/task_manager.dir/src/main.cpp.o             | Bin [31m0[m -> [32m11416[m bytes
+ task_manager/build/CMakeFiles/task_manager.dir/src/main.cpp.o.d           | 162 [32m+++++++[m
+ task_manager/build/CMakeFiles/task_manager.dir/src/manager.cpp.o          | Bin [31m0[m -> [32m52024[m bytes
+ task_manager/build/CMakeFiles/task_manager.dir/src/manager.cpp.o.d        | 162 [32m+++++++[m
+ task_manager/build/CMakeFiles/task_manager.dir/src/task.cpp.o             | Bin [31m0[m -> [32m23568[m bytes
+ task_manager/build/CMakeFiles/task_manager.dir/src/task.cpp.o.d           | 118 [32m+++++[m
+ task_manager/build/Makefile                                               | 235 [32m++++++++++[m
+ task_manager/build/cmake_install.cmake                                    |  54 [32m+++[m
+ task_manager/build/task_manager                                           | Bin [31m0[m -> [32m56184[m bytes
+ task_manager/include/manager.h                                            |  22 [32m+[m
+ task_manager/include/task.h                                               |  23 [32m+[m
+ task_manager/src/main.cpp                                                 | 118 [32m+++++[m
+ task_manager/src/manager.cpp                                              |  58 [32m+++[m
+ task_manager/src/task.cpp                                                 |  32 [32m++[m
+ 44 files changed, 4361 insertions(+)
+[33mbcafc59[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m New mini project + UPDATE README
