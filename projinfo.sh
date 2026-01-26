@@ -34,3 +34,15 @@ echo "Кол-во файлов .срр - $countcpp"
 echo "Кол-во файлов .h - $counth"
 echo "Кол-во строк в файлах - $countl"
 
+echo "Собрать и компилировать проект? (y/n): "
+read st
+if [[ "$st" == [yY] ]]; then
+	file=$(find "$DIRNAME" -name "*.cpp")
+	if  g++ -Wall -Wextra -std=c++20 $file -o "$DIRNAME"; then
+		echo "Ok"
+		./"$DIRNAME"
+	else
+		echo "Fail"
+	fi
+fi
+
