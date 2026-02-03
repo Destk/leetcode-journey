@@ -3,6 +3,10 @@
 
 #include <curl/curl.h>
 #include <string>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
 class HttpClient{
     private:
     std::string response_data{};
@@ -16,6 +20,7 @@ class HttpClient{
     }
     public:
         HttpClient();
+        json GetJson(const std::string& url);
         void SetHeader(const std::string& name, const std::string& value);
         std::string Get(const std::string& url);
         std::string Post(const std::string& url, const std::string& data);

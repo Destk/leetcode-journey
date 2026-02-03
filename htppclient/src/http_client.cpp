@@ -58,3 +58,16 @@ bool HttpClient::SaveToFile(const std::string& filename){
     out.close();
     return true;
 }
+
+json HttpClient::GetJson(const std::string& url){
+    std::string response = Get(url);
+    if(response.empty()){
+        throw std::runtime_error("Empty HTTP response");
+    }
+    try{
+        json j = json::parse(response);
+        return j;
+    }catch(json::parse_error& e){
+        throw std::runtime_error(std::string("JSON parse error: ") + e.what());
+    }
+}
