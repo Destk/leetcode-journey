@@ -1,0 +1,19 @@
+CXX = g++
+CXXFLAGS = -std=c++20 -Wall -Wextra 
+TARGET = telegram_bot
+SRC = ../src/http_client.cpp ../src/telegrambot.cpp ../src/main.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJ) -lcurl
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+run: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET) $(OBJ)
