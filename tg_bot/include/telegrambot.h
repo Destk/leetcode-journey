@@ -21,5 +21,6 @@ class TgBot{
         int64_t GetLastUpdateId() const;
         void Save(std::string fn);
         void Load(std::string fn);
+        json ForwardMessage(int64_t to_chat_id, int64_t from_chat_id, int64_t message_id);
 };
 #endif //TG_BOT_H

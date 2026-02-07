@@ -44,6 +44,20 @@ void GetInfoUpdate(TgBot& b){
     std::cout<<"Последнее обновление: " << b.GetLastUpdateId() << '\n';
 }
 
+void TestForward(TgBot& bot) {
+    try {
+        
+        int64_t from_chat_id = 671511321; 
+        int64_t to_chat_id = 1043261327;       
+        int64_t message_id = 123;             
+        
+        json forwarded = bot.ForwardMessage(to_chat_id, from_chat_id, message_id);
+        std::cout << "Сообщение переслано! ID: " << forwarded["result"]["message_id"] << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка пересылки: " << e.what() << std::endl;
+    }
+}
+
 int main(){
     char stop{};
     do{
@@ -54,6 +68,7 @@ int main(){
         SendMessage(bot);
         GetInfoUpdate(bot);
         bot.Save("file_info");
+        TestForward(bot);
         std::cout<<"Продолжить? (Y/n): ";
         std::cin>>stop;
         std::cin.ignore();

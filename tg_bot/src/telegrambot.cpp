@@ -37,15 +37,11 @@ json TgBot::SendMessage(int64_t chat_id, const std::string& txt){
     return result;
 }
 
-int64_t TgBot::Chat_id(){
-    GetUpdates(last_update_id, 100, 0);
-    std::string url = BASE_URL + token + "/getUpdates";
-    json j = bot.GetJson(url);
-    if(!j["ok"]){
-        throw std::runtime_error("Telegram API ERROR " + j["description"].get<std::string>());
-    }
-    if(j["result"].size() > 0 && j["result"][0].contains("message")){
-        return j["result"][0]["message"]["chat"]["id"];
+int64_t TgBot::Chat_id() {
+    json updates = GetUpdates(last_update_id, 100, 0); 
+    
+    if (updates.size() > 0 && updates[0].contains("message")) {
+        return updates[0]["message"]["chat"]["id"].get<int64_t>();
     }
     return -1;
 }
@@ -95,4 +91,22 @@ void TgBot::Load(std::string fn){
         last_update_id = s;
     }
     out.close();
+}
+
+json TgBot::ForwardMessage(int64_t to_chat_id, int64_t from_chat_id, int64_t message_id){
+    std::string url = BASE_URL + token + "/forwardMessage";
+    json request_body; 
+    request_body["chat_id"] = to_chat_id;
+    request_body["from_chat_id"] = from_chat_id;
+    request_body["message_id"] = message_id;
+
+    bot.SetHeaders("Content-Type", "application/json");
+
+    std::string response = bot.Post(url, request_body.dump());
+    
+    json result = json::parse(response);
+    if(!result["ok"]){
+        throw std::runtime_error("Telegram API ERROR " + result["description"].get<std::string>());
+    }
+    return result;
 }
