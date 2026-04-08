@@ -4,7 +4,13 @@
 #include<climits>
 #include<algorithm>
 
-void inp(std::vector<int>& coins, int& amount){
+
+class Solution {
+private:
+    std::vector<int> coins;
+    int amount{};
+public:
+    void inp(){
     bool s = false;
     while(!s){
         coins.clear();
@@ -42,40 +48,36 @@ void inp(std::vector<int>& coins, int& amount){
         }
     }
 }
-
-int coinChange(std::vector<int>& coins, int amount) {
-    if(amount == 0) return 0;
-    if(coins.empty()) return -1;
-
-    std::vector<int> dp(amount+1, INT_MAX);
-    dp[0] = 0;
-
-    for(size_t i = 1; i < dp.size(); i++){
-        for(size_t j = 0; j < coins.size(); j++){
-            if(coins[j] <= i && dp[i-coins[j]] != INT_MAX){
-                dp[i] = std::min(dp[i],dp[i-coins[j]]+1);
+    int coinChange() {
+        if(coins.empty()) return 0;
+        std::vector<int> dp(amount + 1, amount + 1);
+        dp[0] = 0;
+        for(int i = 1; i < amount + 1; i++){
+            for(auto coin : coins){
+                if(coin <= i && dp[i - coin] != amount + 1){
+                    dp[i] = std::min(dp[i], dp[i - coin] + 1);
+                }        
             }
         }
+        int res = (dp[amount] == amount + 1) ?  -1 : dp[amount];
+        return res;
     }
-    return (dp[amount] != INT_MAX) ? dp[amount] : -1;            
-}
-
-void out(int r){
-    if(r != -1){
-        std::cout<<"Минимальное кол-во купюр: "<< r<<'\n';
-    }else{
-        std::cout<<"Нет необходимых купюр\n";
+    void out(int r){
+        if(r != -1){
+            std::cout<<"Минимальное кол-во купюр: "<< r<<'\n';
+        }else{
+            std::cout<<"Нет необходимых купюр\n";
+        }
     }
-}
+};
 
 int main(){
     char c{};
     do{
-        int amount{};
-        std::vector<int> coins{};
-        inp(coins,amount);
-        int r = coinChange(coins,amount);
-        out(r);
+        Solution s{};
+        s.inp();
+        int r = s.coinChange();
+        s.out(r);
         std::cout<<"Продолжить? (y/n): ";
         std::cin>>c;
         std::cout<<'\n';
