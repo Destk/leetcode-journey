@@ -37,23 +37,22 @@ public:
     }
     int lengthOfLIS() {
         if(nums.empty()) return 0;
-        if(nums.size() == 1) return 1;
         std::vector<int> dp(nums.size(), 1);
-        for(size_t i = 0; i < nums.size(); i++){
-            for(size_t j = 0; j < i ; j++){
+        for(int i = 0; i < dp.size(); i++){
+            for(int j = 0; j < i; j++){
                 if(nums[j] < nums[i]){
                     dp[i] = std::max(dp[i], dp[j] + 1);
                 }
             }
         }
-        return *std::max_element(dp.begin(), dp.end());    
+        return *std::max_element(dp.begin(), dp.end());
     }
     void out(int r){
         std::cout<<"Длина самой длинной строго возрастающей подпоследовательности: " << r << '\n';
     }
 };
 
-int main(){
+void play(){
     char stop{};
     std::cout<<"Задача на поиск наибольшей возрастающей подпоследовательности\n";
     do{
@@ -66,5 +65,8 @@ int main(){
         std::cin.ignore();
         std::cout<<'\n';
     }while(stop == 'y' || stop == 'Y');
+}
+int main(){
+    play();
     return 0;
 }
