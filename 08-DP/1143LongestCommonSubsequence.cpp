@@ -4,36 +4,36 @@
 
 class Solution {
 private:
-std::string text1{};
-std::string text2{};
+std::string s1{};
+std::string s2{};
 public:
     void inp(){
         std::cout<<"Введите первую строку: ";
-        std::getline(std::cin, text1);
+        std::getline(std::cin, s1);
         std::cout<<"\nВведите вторую строку: ";
-        std::getline(std::cin, text2);
+        std::getline(std::cin, s2);
         std::cout<<'\n';
     }
     int longestCommonSubsequence() {
-        if(text1.empty() || text2.empty()) return 0;
-        std::vector<std::vector<int>> dp(text1.size() + 1, std::vector<int>(text2.size() + 1, 0));
-        for(size_t i = 1; i < dp.size(); i++){
-            for(size_t j = 1; j < dp[i].size(); j++){
-                if(text1[i-1] == text2[j-1]){
-                    dp[i][j] = 1 + dp[i-1][j-1];
+        if(s1.empty() || s2.empty()) return 0;
+        std::vector<std::vector<int>> dp(s1.size()+1, std::vector<int>(s2.size()+1, 0));
+        for(int i = 1; i <= s1.size(); i++){
+            for(int j = 1; j <= s2.size(); j++){
+                if(s1[i-1] == s2[j-1]){
+                    dp[i][j] = dp[i-1][j-1] + 1;
                 }else{
-                    dp[i][j] = std::max(dp[i][j-1], dp[i-1][j]);
+                    dp[i][j] = std::max(dp[i-1][j], dp[i][j-1]);
                 }
             }
         }
-        return dp[text1.size()][text2.size()];
+        return dp[s1.size()][s2.size()];
     }
     void out(int r){
         std::cout<<"Длина наибольшей общей подпоследовательности: "<<r<<'\n';
     }
 };
 
-int main(){
+void play(){
     char stop{};
     std::cout<<"Наибольшая общая подпоследовательность\n";
     do{
@@ -44,5 +44,11 @@ int main(){
         std::cout<<"Продолжить? (y/n): ";
         std::cin>>stop;
         std::cin.ignore();
+        std::cout<<'\n';
     }while(stop == 'y' || stop == 'Y');
+}
+
+int main(){
+    play();    
+    return 0;
 }
