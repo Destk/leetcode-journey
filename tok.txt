@@ -1,0 +1,1 @@
+https://github.com/settings/tokens/new?description=Code - OSS (read:user repo user:email workflow)&scopes=read:user,repo,user:email,workflow
