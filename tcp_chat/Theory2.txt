@@ -54,3 +54,5 @@ void threadFunction() {
 std::atomic<int> counter = 0;
 counter++;   // потокобезопасно (не нужен мьютекс)
 
+std::thread th(&Server::handler, this, clientSocket); // если функция метод класса, то мы передаем по ссылке
+Правило для мьютексов, 1 мютекс только для одного ресура
