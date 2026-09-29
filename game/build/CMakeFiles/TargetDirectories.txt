@@ -1,3 +1,0 @@
-/mnt/c/Users/Admin/Desktop/leetcode-journey/game/build/CMakeFiles/RPG_game.dir
-/mnt/c/Users/Admin/Desktop/leetcode-journey/game/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Admin/Desktop/leetcode-journey/game/build/CMakeFiles/rebuild_cache.dir
